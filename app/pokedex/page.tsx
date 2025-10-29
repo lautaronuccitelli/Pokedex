@@ -2,8 +2,6 @@ import Link from 'next/link';
 import { getPokemonPage } from '@/lib/pokeapi';
 import SearchClient from '@/components/SearchClient';
 
-
-
 function getOffset(params: { page?: string }) {
   const page = Number(params.page ?? '1');
   return {
