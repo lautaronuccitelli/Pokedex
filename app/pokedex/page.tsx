@@ -3,8 +3,8 @@ import { getPokemonPage } from '@/lib/pokeapi';
 import SearchClient from '@/components/SearchClient';
 
 
-function getOffset(searchParams: { page?: string }) {
-  const page = Number(searchParams.page ?? '1');
+function getOffset(params: { page?: string }) {
+  const page = Number(params.page ?? '1');
   return {
     page: Math.max(1, page),
     offset: (Math.max(1, page) - 1) * 20,
@@ -17,7 +17,7 @@ export default async function Pokedex({
   searchParams: Promise<{ page?: string }>;
 }) {
   const params = await searchParams;
-  const { page, offset } = getOffset(searchParams);
+  const { page, offset } = getOffset(params);
   const data = await getPokemonPage(20, offset);
   
   return (
