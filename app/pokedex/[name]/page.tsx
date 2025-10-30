@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { getPokemon } from '@/lib/pokeapi';
 import StatsBar from '@/components/stats-bar';
-
+import DarkMode from '@/components/DarkMode';
+import Image from 'next/image';
 export default async function PokemonPage({
   params,
 }: {
@@ -12,10 +13,20 @@ export default async function PokemonPage({
   
   return (
     <main className="max-w-2xl mx-auto p-6 space-y-4">
-      <Link href="/pokedex" className="text-sm underline">
+      
+      <Link href="/pokedex" className="px-3 py-2 rounded border rounded px-3 py-2 dark: border rounded px-3 py-2 text-sm transition">
         Volver
       </Link>
       
+      <DarkMode />
+
+      <Image
+        src="/R2.png"
+        width={500}
+        height={500}
+        alt="Logo pokedex"
+      />
+
       <header className="flex items-center gap-4">
         {p.sprites.front_default && (
           <img
