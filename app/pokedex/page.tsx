@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPokemonPage } from '@/lib/pokeapi';
 import SearchClient from '@/components/SearchClient';
+import DarkMode from '@/components/DarkMode';
 //import { PokemonCard} from '@/components';
 function getOffset(params: { page?: string }) {
   const page = Number(params.page ?? '1');
@@ -21,8 +23,14 @@ export default async function Pokedex({
   
   return (
     <main className="max-w-4xl mx-auto p-6 space-y-4">
-      <h1 className="text-2xl font-semibold">Pokedex</h1>
+      <Image
+        src="/R2.png"
+        width={500}
+        height={500}
+        alt="Logo pokedex"
+      />
       <SearchClient />
+      <DarkMode />
       <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {data.results.map((p: { name: string; url: string }) => (
           <li key={p.name}>
