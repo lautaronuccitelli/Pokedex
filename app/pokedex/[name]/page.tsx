@@ -13,19 +13,21 @@ export default async function PokemonPage({
   
   return (
     <main className="max-w-2xl mx-auto p-6 space-y-4">
-      
-      <Link href="/pokedex" className="px-3 py-2 rounded border rounded px-3 py-2 dark: border rounded px-3 py-2 text-sm transition">
+      <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <Link href="/pokedex" className="px-3 py-2 rounded border rounded px-3 py-2 dark: border rounded px-3 py-2 text-sm transition">
         Volver
       </Link>
       
       <DarkMode />
+      </ul>
 
       <Image
         src="/R2.png"
-        width={500}
-        height={500}
+        width={400}
+        height={400}
         alt="Logo pokedex"
       />
+      
 
       <header className="flex items-center gap-4">
         {p.sprites.front_default && (
